@@ -1,0 +1,32 @@
+{% extends "courses/layout.html" %}
+{% load course_extras %}
+
+{% block title %} {{ question|default:"New answer"}} | {{ question.quiz.course.title }} | {{ block.super }} {% endblock %}
+
+{% block breadcrumbs %}
+  <li>
+    <a href="{% url 'detail' pk=question.quiz.course.pk %}">{{ question.quiz.course.title }}</a>
+  </li>
+  <li>
+    <a href="{% url 'quiz' course_pk=question.quiz.course.pk step_pk=question.quiz.pk %}">{{ question.quiz.title }}</a>
+  </li>
+  <li>
+    {{ question.prompt }}
+  </li>
+  {% endblock %}
+
+  {% block content %}
+    <div class="row columns">
+      {{ block.super }}
+    </div>
+      <div class="row columns">
+        <h1>Answers</h1>
+        <form method="POST" action="">
+          {% csrf_token %}
+          <section>
+            {{ formset }}
+          </section>
+          <input type="submit" class="button" value="save" />
+        </form>    
+    </div>
+  {% endblock %}

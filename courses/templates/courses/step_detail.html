@@ -1,0 +1,19 @@
+{% extends "courses/layout.html" %}
+{% load course_extras %}
+
+{% block title %}{{ step.title }} | {{ step.course.title }} {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'detail' pk=step.course.pk %}">{{ step.course.title }}</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="row columns">
+        <article>
+            {{ block.super }}
+            <h1>{{ step.title }}</h1>
+            {{ step.content|markdown_to_html }}
+            Content: {{ step.content|wordcount }} words. Estimated time to complete: {{ step.content|wordcount|time_estimate }} minute{{ step.content|wordcount|time_estimate|pluralize }}.
+        </article>
+    </div>
+{% endblock %}
