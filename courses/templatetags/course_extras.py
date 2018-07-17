@@ -5,7 +5,6 @@ import markdown2
 
 from courses.models import Course
 
-
 register = template.Library()
 
 @register.simple_tag
