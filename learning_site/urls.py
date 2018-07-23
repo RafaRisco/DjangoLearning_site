@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.hello_world, name='home'),
     path('suggest/', views.suggestion_view, name='suggestion'),
-    path(r'^__debug__', include(debug_toolbar.urls))
+    path(r'^__debug__', include(debug_toolbar.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
