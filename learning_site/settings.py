@@ -25,7 +25,7 @@ SECRET_KEY = 'vg3=@d+je_)%g)^6rsld&%(0)t=+c13!$q5*6!p38%)d7-u7j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.rafarisco.pythonanywhere.com']
 
 
 # Application definition
