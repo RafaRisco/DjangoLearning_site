@@ -14,7 +14,7 @@ from django.core.wsgi import get_wsgi_application
 
 from whitenoise.django import DjangoWhiteNoise
 
-path = "/home/rafarisco/DjangoLearning_site/learning_site"
+path = "/home/RafaRisco/DjangoLearning_site/learning_site"
 if path not in sys.path:
     sys.path.append(path)
 
